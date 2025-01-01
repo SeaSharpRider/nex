@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -IC:/Users/Administrator/Downloads/glew/glew/include -IC:/Users/Administrator/Downloads/GLFW/glfw/include
+CFLAGS = -Wall -Wextra -IC:/Users/Administrator/Downloads/glew/glew/include -IC:/Users/Administrator/Downloads/GLFW/glfw/include -IC:/Users/Administrator/Downloads/stb/stb
 LDFLAGS = -LC:/Users/Administrator/Downloads/glew/glew/lib/Release/x64 -lglew32 -lopengl32 -LC:\Users\Administrator\Downloads\GLFW\glfw\lib-mingw-w64 -lglfw3 -lgdi32
 TARGET = nex
 SOURCES = main.c

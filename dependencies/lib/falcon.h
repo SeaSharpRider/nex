@@ -1,15 +1,16 @@
 #ifndef FALCON_H
 #define FALCON_H
 
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
 #include <stdbool.h>
-// TODO: Add stb_image.h
 
 #include <GLFW/glfw3.h>
-#define STB_IMAGE_IMPLEMENTATION
 
 typedef struct {
     int width;
@@ -141,13 +142,13 @@ static inline void window_set_title(Window* window, const char* title) {
 
 
 // TODO: Implement icon setting
-//static inline void window_set_icon(Window* window, const char* icon_path) {
-//    if (!window) return;
-//    GLFWimage icon;
-//    icon.pixels = stbi_load(icon_path, &icon.width, &icon.height, NULL, 4);
-//    glfwSetWindowIcon(window->handle, 1, &icon);
-//    stbi_image_free(icon.pixels);
-//}
+static inline void window_set_icon(Window* window, const char* icon_path) {
+    if (!window) return;
+    GLFWimage icon;
+    icon.pixels = stbi_load(icon_path, &icon.width, &icon.height, NULL, 4);
+    glfwSetWindowIcon(window->handle, 1, &icon);
+    stbi_image_free(icon.pixels);
+}
 
 static inline void window_set_size(Window* window, int width, int height) {
     if (!window) return;
@@ -165,7 +166,7 @@ static inline void window_set_position(Window* window, int x, int y) {
 
 static inline void window_update(Window* window) {
     if (!window) return;
-    
+
     glClearColor(window->bg_color[0], window->bg_color[1], window->bg_color[2], window->bg_color[3]);
     glClear(GL_COLOR_BUFFER_BIT);
     glfwSwapBuffers(window->handle);
